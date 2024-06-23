@@ -1,0 +1,30 @@
+.add-product-container{
+    display: flex;
+    flex-direction: row;    
+}
+.add-product-container>label{
+    margin: 0em 1em;
+    font-size: 1.3em;
+}
+.add-product-container>button{
+    margin: 0em 1em;
+}
+.add-product-container>input{
+    font-size: 1em;
+}
+@media screen and (max-width:800px) {
+    .add-product-container{
+        display: flex;
+        flex-direction: column;    
+    }
+    .add-product-container>label{
+        margin: 1em 0em;
+        font-size: 1.3em;
+    }
+    .add-product-container>button{
+        margin: 1em 0em;
+    }
+    .add-product-container>input{
+        font-size: 2em;
+    }
+}
