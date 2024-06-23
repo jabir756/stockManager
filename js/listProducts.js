@@ -1,13 +1,13 @@
+export const tabName = ['biere']
+export const tabPrice = [4]
 
 $(document).ready(()=>{ 
 
-    let tab = ['biere','cafe'];
-
-    for(let i=0; i<tab.length; i++){
+    for(let i=0; i<tabName.length; i++){
         $('.list-products-container>nav>ul').append(`
-            <li>${tab[i]}</li>
+            <li>${tabName[i]+' = '+tabPrice[i]+'$'}</li>
         `)
-    } 
+    }
     
     $(document).on('click','.return',()=>{
         window.location.href = '../index.html'

@@ -1,19 +1,22 @@
+import {tabName} from '../js/addProducts'
+import { tabPrice } from './listStockScript'
 
-$(document).ready(()=>{
+$(document).ready(()=>{   
 
-    let name;
-    let price;
+    let name
+    let price
 
     $(document).on('click','.validation',()=>{
-        $('.product-name').value = name;
-        $('.product-price').value = price;
-        tab.push(name, price);
-    });
+        $('.product-name').val() = name
+        $('.product-price').val() = price
+        tabName.push(name)
+        tabPrice.push(price)
+    })
     
     $(document).on('click','.return',()=>{
-        window.location.href = '../index.html';
-    });
+        window.location.href = '../index.html'
+    })
     
 
-});
+})
 
