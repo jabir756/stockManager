@@ -1,13 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(()=>{
 
-    document.addEventListener('click', (event) => {
-        if (event.target.classList.contains('list-products-button')) {
-            window.location.href = 'listProducts.html';
-        } else if (event.target.classList.contains('remove-products-button')) {
-            window.location.href = 'removeProducts.html';
-        } else if (event.target.classList.contains('add-products-button')) {
-            window.location.href = 'addProducts.html';
-        }
+    $(document).on('click','.list-products-button',()=>{
+        window.location.href = 'listProducts.html';      
     });
 
-});
+    $(document).on('click', '.remove-products-button', () => {
+        window.location.href = 'removeProducts.html';
+    });
+
+    $(document).on('click','.add-products-button', () => {       
+        window.location.href = 'addProducts.html';
+    });
+
+
+})
