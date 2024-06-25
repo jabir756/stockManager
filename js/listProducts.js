@@ -31,7 +31,7 @@ $(document).ready(() => {
             $('.products-name').val('');
             $('.products-price').val('');
         } else {
-            alert('Veuillez entrer un nom de produit et un prix valides.');
+            alert('Please enter a valide name and price.');
         }
     });
 
@@ -43,7 +43,7 @@ $(document).ready(() => {
 
         for(let i = 0; i < tabName.length; i++){
             if(tabName[i].toLowerCase() === productToRemove) {
-                alert(`Votre produit est: ${tabName[i]} = ${tabPrice[i]}$`);
+                alert(`Your product is: ${tabName[i]} = ${tabPrice[i]}$`);
                 find = true;
                 index = i;
                 break;
@@ -51,7 +51,7 @@ $(document).ready(() => {
         }
 
         if(!find) {
-            alert(`Votre produit n'est pas dans la liste`);
+            alert(`Your product is not in the list`);
         }
     });
 
@@ -63,17 +63,17 @@ $(document).ready(() => {
             tabName.splice(index, 1);
             tabPrice.splice(index, 1);
             updateProductList();
-            alert(`Votre produit ${removedProductName} = ${removedProductPrice}$ est supprimé`);
+            alert(`Your product ${removedProductName} = ${removedProductPrice}$ is deleted`);
             find = false;
             index = -1;
         } else {
-            alert('Veuillez d\'abord rechercher un produit à supprimer.');
+            alert('Please search product to delete first.');
         }
     });
 
     // Redirection vers une autre page
     $(document).on('click', '.return', () => {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     });
 
 });
