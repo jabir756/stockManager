@@ -1,4 +1,4 @@
-$(document).ready(() => { 
+document.addEventListener('DOMContentLoaded', () => { 
 
     let tabName = ['biere'];
     let tabPrice = [4];
@@ -8,11 +8,12 @@ $(document).ready(() => {
 
     // Fonction pour mettre à jour la liste des produits affichés
     function updateProductList() {
-        $('.list-products-container>nav>ul').empty();
+        const ul = document.querySelector('.list-products-container > nav > ul');
+        ul.innerHTML = '';
         for(let i = 0; i < tabName.length; i++){
-            $('.list-products-container>nav>ul').append(`
-                <li>${tabName[i]} = ${tabPrice[i]}$</li>
-            `);
+            const li = document.createElement('li');
+            li.textContent = `${tabName[i]} = ${tabPrice[i]}$`;
+            ul.appendChild(li);
         }
     }
 
@@ -20,24 +21,24 @@ $(document).ready(() => {
     updateProductList();
 
     // Ajouter un produit
-    $('.add').on('click', () => {
-        let productName = $('.products-name').val().trim();
-        let productPrice = parseFloat($('.products-price').val().trim());
+    document.querySelector('.add').addEventListener('click', () => {
+        let productName = document.querySelector('.products-name').value.trim();
+        let productPrice = parseFloat(document.querySelector('.products-price').value.trim());
 
         if (productName && !isNaN(productPrice)) {
             tabName.push(productName);
             tabPrice.push(productPrice);
             updateProductList();
-            $('.products-name').val('');
-            $('.products-price').val('');
+            document.querySelector('.products-name').value = '';
+            document.querySelector('.products-price').value = '';
         } else {
             alert('Veuillez entrer un nom de produit et un prix valides.');
         }
     });
 
     // Rechercher un produit
-    $('.search').on('click', () => {
-        let productToRemove = $('.remove-product').val().trim().toLowerCase();
+    document.querySelector('.search').addEventListener('click', () => {
+        let productToRemove = document.querySelector('.remove-product').value.trim().toLowerCase();
         find = false;
         index = -1;
 
@@ -56,7 +57,7 @@ $(document).ready(() => {
     });
 
     // Supprimer un produit
-    $('.remove').on('click', () => {
+    document.querySelector('.remove').addEventListener('click', () => {
         if(find && index > -1) {
             let removedProductName = tabName[index];
             let removedProductPrice = tabPrice[index];
@@ -72,8 +73,10 @@ $(document).ready(() => {
     });
 
     // Redirection vers une autre page
-    $(document).on('click', '.return', () => {
-        window.location.href = '../index.html';
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('return')) {
+            window.location.href = '../index.html';
+        }
     });
 
 });
