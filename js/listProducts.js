@@ -71,9 +71,4 @@ $(document).ready(() => {
         }
     });
 
-    // Redirection vers une autre page
-    $(document).on('click', '.return', () => {
-        window.location.href = '../index.html';
-    });
-
 });

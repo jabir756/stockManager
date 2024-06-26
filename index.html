@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/indexStyles.css">
     <link rel="stylesheet" href="css/basic-responsive-design.css">
+    <link rel="stylesheet" href="css/addProducts-styles.css">
+    <link rel="stylesheet" href="css/removeProducts-styles.css">
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <title>Stock Manager</title>
 </head>
@@ -19,8 +21,37 @@
             <button class="list-products-button">List products in stock</button>
             <button class="add-products-button">Add products in stock</button>
             <button class="remove-products-button">Remove products in stock</button>
-        </div>        
+        </div>
+        
+        <div class="list-products">
+            <h1>List of Products:</h1>
+            <div class="list-products-container">
+                <nav>
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+        </div> 
+
+        <div class="remove-product-container">
+            <h1>Remove Products:</h1>
+            <form class="remove-product-form">
+                <label for=".remove-product">Product Name:</label><input type="text" class="remove-product" placeholder="search product">
+                <button class="search">search</button>
+                <button class="remove">Remove Product</button>
+            </form>
+        </div>
+
+        <div class="add-product">
+            <h1>Add Products:</h1>
+            <form class="add-product-container">
+                <label for=".product-name">product name:</label><input type="text" class="product-name">
+                <label for=".product-price">product price:</label><input type="number" class="product-price">
+                <button class="add">Add Product</button>
+            </form>
+        </div>
     </main>
+
 
     <footer>
         <p>Author: jabir756</p>
@@ -29,6 +60,7 @@
     </footer>
     
     <script src="js/indexScript.js"></script>
+    <script src="js/listProducts.js"></script>
 </body>
 
 </html>
