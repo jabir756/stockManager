@@ -1,3 +1,18 @@
+.return-container>button{
+    margin-bottom:1.5em ;
+    width: 8em;
+    height: 4em;
+    background-color: rgb(188, 36, 36);
+    font-size: 1.2em;
+}
+.return-container>button:hover{
+    background-color: brown;
+}
 main>div>button{
+    width: 8em;
     margin: 0.3em 0em;
+}
+
+main>div{
+    margin-bottom: 1.5em;
 }
