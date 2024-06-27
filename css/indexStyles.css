@@ -5,9 +5,11 @@
     background-color: rgb(188, 36, 36);
     font-size: 1.2em;
 }
+
 .return-container>button:hover{
     background-color: brown;
 }
+
 main>div>button{
     width: 8em;
     margin: 0.3em 0em;
@@ -15,4 +17,10 @@ main>div>button{
 
 main>div{
     margin-bottom: 1.5em;
+}
+
+footer>a{
+    color: black;
+    padding: 0em 1em;
+    text-decoration: underline;
 }

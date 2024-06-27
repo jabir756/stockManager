@@ -1,74 +1,52 @@
-$(document).ready(() => { 
+$(document).ready(() => {
 
-    let tabName = ['biere'];
-    let tabPrice = [4];
+    let productName = "default";
+    let productPrice = 0;
 
-    let find = false;
-    let index = -1;
+    //get values
+    productName = $(".product-name").trim().val().toString().toLowerCase();
+    productPrice = $(".product-price").trim().val().toNumber();
 
-    // Fonction pour mettre à jour la liste des produits affichés
-    function updateProductList() {
-        $('.list-products-container>nav>ul').empty();
-        for(let i = 0; i < tabName.length; i++){
-            $('.list-products-container>nav>ul').append(`
-                <li>${tabName[i]} = ${tabPrice[i]}$</li>
-            `);
-        }
-    }
+    let productNameTab = [];
+    let productPriceTab = [];
 
-    // Initialiser la liste des produits
-    updateProductList();
+    //on click to add product
+    $(".add").on("click", () => {
+        productNameTab.push(productName);
+        productPriceTab.push(productPrice);
 
-    // Ajouter un produit
-    $('.add').on('click', () => {
-        let productName = $('.products-name').val().trim();
-        let productPrice = parseFloat($('.products-price').val().trim());
+        const fs = require("fs");
 
-        if (productName && !isNaN(productPrice)) {
-            tabName.push(productName);
-            tabPrice.push(productPrice);
-            updateProductList();
-            $('.products-name').val('');
-            $('.products-price').val('');
-        } else {
-            alert('Please enter a valide name and price.');
-        }
-    });
+        // Objet à écrire dans le fichier JSON
+        const data = {
+            name: productNameTab.join,
+            price: productPriceTab.join,
+        };
 
-    // Rechercher un produit
-    $('.search').on('click', () => {
-        let productToRemove = $('.remove-product').val().trim().toLowerCase();
-        find = false;
-        index = -1;
+        // Convertir l'objet en une chaîne JSON
+        const jsonData = JSON.stringify(data, null, 2);
 
-        for(let i = 0; i < tabName.length; i++){
-            if(tabName[i].toLowerCase() === productToRemove) {
-                alert(`Your product is: ${tabName[i]} = ${tabPrice[i]}$`);
-                find = true;
-                index = i;
-                break;
+        // Chemin du fichier JSON
+        const filePath = "./list.json";
+
+        // Écrire dans le fichier
+        fs.writeFile(filePath, jsonData, "utf8", (err) => {
+            if (err) {
+                console.error("Erreur lors de l'écriture du fichier JSON:", err);
+                return;
             }
-        }
-
-        if(!find) {
-            alert(`Your product is not in the list`);
-        }
+            console.log("Fichier JSON écrit avec succès.");
+        });
     });
 
-    // Supprimer un produit
-    $('.remove').on('click', () => {
-        if(find && index > -1) {
-            let removedProductName = tabName[index];
-            let removedProductPrice = tabPrice[index];
-            tabName.splice(index, 1);
-            tabPrice.splice(index, 1);
-            updateProductList();
-            alert(`Your product ${removedProductName} = ${removedProductPrice}$ is deleted`);
-            find = false;
-            index = -1;
-        } else {
-            alert('Please search product to delete first.');
-        }
-    });
+    $('.search').on('click',() => {
+
+        
+
+
+
+
+    })
+
 
 });
